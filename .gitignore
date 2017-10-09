@@ -86,11 +86,11 @@ Temporary Items
 .tags
 
 # Data
-cache/
+cache/*
 cache_backup1/
-cache
-data/
-data
+!cache/.gitkeep
+data/*
+!data/.gitkeep
 data_backup1/
 backup/
 *.zip
@@ -98,5 +98,9 @@ backup/
 .git_old/
 
 submissions/
-models/
-logs/
+models/*
+!models/.gitkeep
+logs/*
+!logs/.gitkeep
+model_features/*
+!model_features/.gitkeep
