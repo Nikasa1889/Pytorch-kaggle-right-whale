@@ -85,6 +85,12 @@ Temporary Items
 
 .tags
 
+# Vim swap file
+*.swp
+
+# Credentials information
+cookies.txt
+
 # Data
 cache/*
 cache_backup1/

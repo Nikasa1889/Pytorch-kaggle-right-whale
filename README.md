@@ -16,6 +16,9 @@ You should see [the original blog post](http://felixlaumon.github.io/2015/01/08/
 
 ### General notes
 
+You need [`git large file storage`](https://git-lfs.github.com/) installed before cloning the project, so large data files (e.g., `train_with_annotations.csv`) can be downloaded
+automatically. If you forgot, you must install git-lfs, then run `$ git lfs fetch` to replace git-lfs pointers by the actual file content.
+
 To prevent wasting time on decoding the jpgs over and over again, I decoded the jpgs into a numpy memmap array. The resulting files would take quite a bit of disk space.
 
 When using long-running script, I recommend using `ipython -i --pdb` to drop us to the debugger when there is any uncaught exceptions and into interaction mode when the script has finished executing.
@@ -28,7 +31,7 @@ Download `sample_submission.csv.zip`, `imgs.zip`, and `train.csv.zip` and uncomp
 
 Alternatively, you can place your [cookies.txt](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en) for kaggle.com and use `make data`
 
-You should also create the `models/`, `cache/`,  `model_features/` folders, ending up with a folder structure like the following:
+The folder structure should be like the following:
 
     cache/
     data/
@@ -50,6 +53,7 @@ You should also create the `models/`, `cache/`,  `model_features/` folders, endi
     utils/
     scripts/
     submissions/
+
 
 Run `ipython -i --pdb scripts/create_label_encoder.py` to create `models/encoder.pkl`
 
