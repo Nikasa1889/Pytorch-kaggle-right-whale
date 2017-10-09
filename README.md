@@ -1,18 +1,16 @@
-# kaggle-right-whale
+# Pytorch kaggle-right-whale
 
-2nd place solution to the [Kaggle Right Whale](https://www.kaggle.com/c/noaa-right-whale-recognition) challenge.
+A Pytorch implementation of the [Kaggle Right Whale](https://www.kaggle.com/c/noaa-right-whale-recognition) 2nd place [solution](https://github.com/felixlaumon/kaggle-right-whale).
 
-You should see [my blog post](http://felixlaumon.github.io/2015/01/08/kaggle-right-whale.html) for detailed description of my approach.
+You should see [the original blog post](http://felixlaumon.github.io/2015/01/08/kaggle-right-whale.html) for detailed description of the approach.
 
 ![](http://felixlaumon.github.io/assets/kaggle-right-whale/aligner_localization_approach.png)
 
 ## Requirements
 
 - Anaconda Python Distribution (any version should work but I used conda 3.19.0)
-- Theano, Lasagne, nolearn, nolearn_utils. `pip install -r requirements.txt` (Latest version should work fine if you have them installed with `python setup.py develop`)
-- NVidia GPU and cuDNN v3
-
-Alternatively you can train a model using Docker on AWS EC2 GPU instances. See README_DOCKER.md for details
+- Pytorch. `pip install -r requirements.txt`
+- NVidia GPU and cuDNN v3 or later
 
 ## Reproducing the final submission file
 
