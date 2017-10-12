@@ -6,6 +6,16 @@ You should see [the original blog post](http://felixlaumon.github.io/2015/01/08/
 
 ![](http://felixlaumon.github.io/assets/kaggle-right-whale/aligner_localization_approach.png)
 
+## TaskLists
+- [x] Recreate cached datasets
+- [] Write MemmapDataset for Pytorch that support reading X and y from memmap
+  files
+- [] Write the Localizer network in Pytorch
+- [] Write the Recognizer network in Pytorch
+- [] Write script to convert "image_net style" of dataset to X and y memmap
+- [] Write script to convert sloth's yaml to target
+- [] Make the pipeline applicable in more general settings
+
 ## Requirements
 
 - Anaconda Python Distribution (any version should work but I used conda 3.19.0)
@@ -25,7 +35,7 @@ When using long-running script, I recommend using `ipython -i --pdb` to drop us 
 
 Replace `[date]` with the date the cache is created (e.g. `20151229`). Replace `[model_name]` with the name of the model definition corresponding to `model_definitions/*.py`
 
-### 1. Data
+### Step 1. Data
 
 Download `sample_submission.csv.zip`, `imgs.zip`, and `train.csv.zip` and uncompress them to `data/`
 
@@ -56,20 +66,23 @@ The folder structure should be like the following:
     scripts/
     submissions/
 
+### Step 2: Create cached data
 
-Run `ipython -i --pdb scripts/create_label_encoder.py` to create `models/encoder.pkl`
+`Unzip` all the downloaded datafiles, including `sample_submission.csv.zip`, `imgs.zip`, and `train.csv.zip` 
 
-### 2. Train whale head aligner
+Run `ipython -i --pdb scripts/create_label_encoder.py` to create label encoder in `models/encoder.pkl`
 
 Run `ipython -i --pdb scripts/create_cached_image.py -- --size 256` to create cached training images with bonnet and blowhead as the target
 
 Run `ipython -i --pdb scripts/create_cached_test_image.py -- --size 256` to create a cache for test images
 
+### Step 2. Train whale head aligner
+
 Run `ipython -i --pdb scripts/train_pts_models.py -- --data 256_[date] --model localize_pts_dec31 --no_test` to train the aligner.
 
 Run `ipython -i --pdb scripts/create_test_head_crop_image.py -- --size 256 --data 256_[date] --model localize_pts_dec31 --tta` to use the trained model to create aligned test images. This also uses test-time augmentation so it will take quite a long time. Multiple processes will be used by default.
 
-### 3. Train whale recognizer
+### Step 3. Train whale recognizer
 
 Run `ipython -i --pdb scripts/create_cached_head_crop_image.py -- --size 256` to create aligned whale head training images.
 
