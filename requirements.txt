@@ -4,7 +4,12 @@
 #git+https://github.com/Theano/Theano.git@54186290#egg=Theano==0.8.git
 pyyaml
 Pillow
+pandas
+scikit-image
+scikit-learn
+numpy
+tqdm
 ###### Install PyTorch ######
 ## Pytorch for Cuda8.0 on Linux
-http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp27-cp27mu-manylinux1_x8
+#http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp27-cp27mu-manylinux1_x8
 torchvision

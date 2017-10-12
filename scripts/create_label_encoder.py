@@ -1,3 +1,7 @@
+"""
+Create a label encoder for transforming between external class labels and learnable representation (0, 1, 2, ...)
+"""
+
 import argparse
 import os
 import pandas as pd

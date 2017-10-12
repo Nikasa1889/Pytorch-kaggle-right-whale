@@ -17,7 +17,7 @@ You should see [the original blog post](http://felixlaumon.github.io/2015/01/08/
 ### General notes
 
 You need [`git large file storage`](https://git-lfs.github.com/) installed before cloning the project, so large data files (e.g., `train_with_annotations.csv`) can be downloaded
-automatically. If you forgot, you must install git-lfs, then run `$ git lfs fetch` to replace git-lfs pointers by the actual file content.
+automatically. If you forgot, you must install git-lfs, then run `$ git lfs pull` to replace git-lfs pointers by the actual file content.
 
 To prevent wasting time on decoding the jpgs over and over again, I decoded the jpgs into a numpy memmap array. The resulting files would take quite a bit of disk space.
 
@@ -29,7 +29,9 @@ Replace `[date]` with the date the cache is created (e.g. `20151229`). Replace `
 
 Download `sample_submission.csv.zip`, `imgs.zip`, and `train.csv.zip` and uncompress them to `data/`
 
-Alternatively, you can place your [cookies.txt](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en) for kaggle.com and use `make data`
+Alternatively, you can place your [cookies.txt](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en) for kaggle.com and use `make data`.
+Make sure that you have accepted the `Rules` of the [Kaggle Right Whale](https://www.kaggle.com/c/noaa-right-whale-recognition) competition before executing `make data`. Otherwise, the script will download the error message from Kaggle
+instead of the data files.
 
 The folder structure should be like the following:
 

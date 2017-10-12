@@ -1,5 +1,5 @@
 """
-Create cached images to memmap
+Create cache of images, target, bbox, and headpoints in X, y, bbox, and y numpy memmap accordingly
 """
 from __future__ import division
 import argparse
@@ -31,7 +31,7 @@ def load_images(df):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--size', required=True, type=int, help='Size of the image')
-    parser.add_argument('--overwrite', action='store_true', help='Overwirte existing cache')
+    parser.add_argument('--overwrite', action='store_true', help='Overwrite existing cache')
     parser.add_argument('--vinh', action='store_true')
 
     args = parser.parse_args()
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     df['exist'] = df['Image'].apply(check_if_image_exists)
 
-    print '%i does not exists' % (len(df) - df['exist'].sum())
+    print '%i images do not exists' % (len(df) - df['exist'].sum())
     print df[~df['exist']]
 
     df = df[df['exist']]
